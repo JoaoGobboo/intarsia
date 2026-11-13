@@ -1,4 +1,4 @@
-module github.com/intarsia/intarsia
+module github.com/JoaoGobboo/intarsia
 
 go 1.27.1
 

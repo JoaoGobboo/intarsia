@@ -13,7 +13,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/intarsia/intarsia/internal/server"
+	"github.com/JoaoGobboo/intarsia/internal/server"
 )
 
 // dist is the compiled web interface, produced by `make build` from web/.

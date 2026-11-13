@@ -9,7 +9,7 @@ import (
 	"testing"
 	"testing/fstest"
 
-	"github.com/intarsia/intarsia/internal/server"
+	"github.com/JoaoGobboo/intarsia/internal/server"
 )
 
 func TestVersionCommand(t *testing.T) {

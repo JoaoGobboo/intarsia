@@ -14,12 +14,12 @@ linters:
           files:
             - "**/internal/connectors/**"
           deny:
-            - pkg: github.com/intarsia/intarsia/internal
-              desc: built-in connectors may only import github.com/intarsia/intarsia/sdk
-            - pkg: github.com/intarsia/intarsia/cmd
-              desc: built-in connectors may only import github.com/intarsia/intarsia/sdk
+            - pkg: github.com/JoaoGobboo/intarsia/internal
+              desc: built-in connectors may only import github.com/JoaoGobboo/intarsia/sdk
+            - pkg: github.com/JoaoGobboo/intarsia/cmd
+              desc: built-in connectors may only import github.com/JoaoGobboo/intarsia/sdk
           allow:
-            - github.com/intarsia/intarsia/internal/connectors
+            - github.com/JoaoGobboo/intarsia/internal/connectors
 
 formatters:
   enable:
@@ -28,4 +28,4 @@ formatters:
   settings:
     goimports:
       local-prefixes:
-        - github.com/intarsia/intarsia
+        - github.com/JoaoGobboo/intarsia
