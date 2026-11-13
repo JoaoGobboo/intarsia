@@ -1,0 +1,25 @@
+# The fictional company. Start it with `intarsia demo up`, which generates the
+# data files first; `intarsia demo down` removes everything.
+name: intarsia-demo
+
+services:
+  crm:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: crm
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: crm
+    ports:
+      # Only this machine, and not 5432, which a local Postgres may be using.
+      - "127.0.0.1:54320:5432"
+    volumes:
+      # Runs once, when the container is created. There is no data volume, so
+      # `demo down` followed by `demo up` always starts from the same data.
+      - ./generated/crm.sql:/docker-entrypoint-initdb.d/crm.sql:ro
+    healthcheck:
+      # Over TCP on purpose: while the image loads the script it listens only
+      # on a socket, so this stays unhealthy until the data is in.
+      test: ["CMD", "pg_isready", "--host=127.0.0.1", "--username=crm", "--dbname=crm"]
+      interval: 1s
+      timeout: 3s
+      retries: 60

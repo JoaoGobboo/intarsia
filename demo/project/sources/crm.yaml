@@ -1,0 +1,11 @@
+description: CRM da empresa, num Postgres. Tem clientes cadastrados em duplicidade.
+type: postgres
+mode: attach
+connection:
+  host: 127.0.0.1
+  port: 54320
+  database: crm
+  user: ${CRM_USER}
+  password: ${CRM_PASSWORD}
+tables:
+  - clientes

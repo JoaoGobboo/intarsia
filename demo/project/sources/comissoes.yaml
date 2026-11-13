@@ -1,0 +1,5 @@
+description: Tabela de comissões por vendedor, que só existe em PDF.
+type: pdf
+mode: attach
+connection:
+  path: files/comissoes.pdf

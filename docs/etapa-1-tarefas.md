@@ -145,6 +145,16 @@ Postgres e Excel.
 - Um `insert`, `update`, `delete` ou `drop` é recusado com mensagem clara.
 - Uma fonte fora do ar gera erro que nomeia a fonte, sem derrubar as outras.
 - Os testes rodam contra a empresa fictícia.
+- Arquivos difíceis em `testdata/`, cada um com o resultado esperado ao lado.
+  O comportamento em cada caso é confirmado com o usuário antes de implementar,
+  e arquivos reais valem mais do que fabricados:
+  - Excel: fórmulas (inclusive sem valor calculado gravado), células
+    mescladas, várias abas, cabeçalho fora da primeira linha, linhas de título
+    e de total, datas e números guardados como texto, linhas e colunas ocultas.
+  - PDF: tabela que atravessa páginas, tabela sem linhas desenhadas, célula com
+    quebra de linha, duas tabelas na mesma página, texto comprimido e fontes
+    embutidas, PDF escaneado e PDF protegido por senha (os dois últimos com
+    erro claro).
 - A compilação continua passando nas três plataformas.
 
 **Atenção.** É a tarefa com mais risco técnico, por causa do cgo. Se a

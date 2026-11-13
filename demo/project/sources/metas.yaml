@@ -1,0 +1,5 @@
+description: Metas de vendas por cliente e mês, mantidas numa planilha pelo comercial.
+type: excel
+mode: attach
+connection:
+  path: files/metas.xlsx

@@ -13,7 +13,7 @@ GOLANGCI_LINT := go run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v
 # Read by Vite, so the page shows the same version as `intarsia version`.
 export VITE_APP_VERSION := $(VERSION)
 
-.PHONY: build test lint dev dev-server dev-web
+.PHONY: build test lint dev dev-server dev-web demo
 
 build: web/node_modules
 	npm --prefix web run build
@@ -38,6 +38,10 @@ dev-server: $(WEB_DIST)
 
 dev-web: web/node_modules
 	npm --prefix web run dev
+
+# Starts the fictional company. Needs Docker; stop it with `intarsia demo down`.
+demo: $(WEB_DIST)
+	go run ./cmd/intarsia demo up
 
 $(WEB_DIST): | web/node_modules
 	npm --prefix web run build

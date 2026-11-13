@@ -24,6 +24,7 @@ make build
 | `make test` | Runs the Go and frontend tests |
 | `make lint` | Lints Go and the frontend, including the architecture boundaries |
 | `make dev` | Starts the server and the interface in development mode |
+| `make demo` | Starts the fictional company used by tests and demonstrations (needs Docker) |
 
 Run a `make` target before using `go` directly: the Go code embeds the compiled
 interface, which `make` builds first.
