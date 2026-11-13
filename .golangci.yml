@@ -7,6 +7,27 @@ linters:
   settings:
     depguard:
       rules:
+        # Ports and adapters: the core defines interfaces and knows nothing
+        # about the query engine, HTTP or any connector.
+        core-is-independent-of-infrastructure:
+          files:
+            - "**/internal/project/**"
+            - "**/internal/model/**"
+            - "**/internal/ontology/**"
+            - "**/internal/output/**"
+          deny:
+            - pkg: github.com/duckdb
+              desc: core packages must not import DuckDB; internal/engine implements their interfaces
+            - pkg: net/http
+              desc: core packages must not import HTTP; internal/server and internal/dataapi do
+            - pkg: github.com/JoaoGobboo/intarsia/internal/engine
+              desc: core packages must not import infrastructure packages
+            - pkg: github.com/JoaoGobboo/intarsia/internal/server
+              desc: core packages must not import infrastructure packages
+            - pkg: github.com/JoaoGobboo/intarsia/internal/dataapi
+              desc: core packages must not import infrastructure packages
+            - pkg: github.com/JoaoGobboo/intarsia/internal/connectors
+              desc: core packages must not import infrastructure packages
         # Built-in connectors have no privilege over external plugins: they may
         # import sdk/ and each other, never the rest of internal/.
         connectors-only-import-sdk:

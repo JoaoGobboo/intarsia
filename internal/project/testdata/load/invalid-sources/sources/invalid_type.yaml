@@ -1,0 +1,4 @@
+type: mysql
+mode: attach
+connection:
+  host: db

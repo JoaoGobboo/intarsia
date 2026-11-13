@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "postgres",
+        "excel",
+        "csv",
+        "parquet",
+        "pdf"
+      ]
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "attach"
+      ]
+    },
+    "writable": {
+      "type": "boolean"
+    },
+    "connection": {
+      "type": "object"
+    },
+    "tables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "type",
+    "mode",
+    "connection"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "postgres"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "properties": {
+              "host": {
+                "type": "string"
+              },
+              "port": {
+                "type": "integer"
+              },
+              "database": {
+                "type": "string"
+              },
+              "user": {
+                "type": "string"
+              },
+              "password": {
+                "type": "string",
+                "format": "password"
+              }
+            },
+            "required": [
+              "host",
+              "database",
+              "user",
+              "password"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "excel"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "csv"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "parquet"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "pdf"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "connection": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      }
+    }
+  ]
+}

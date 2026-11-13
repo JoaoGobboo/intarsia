@@ -1,0 +1,13 @@
+# sources/crm.yaml
+description: CRM da empresa
+type: postgres
+mode: attach            # attach ou sync
+connection:
+  host: crm.interno
+  port: 5433
+  database: crm
+  user: ${CRM_USER}
+  password: ${CRM_PASSWORD}   # never the value itself
+tables:                 # omitido = todas
+  - clientes
+  - contatos

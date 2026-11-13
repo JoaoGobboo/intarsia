@@ -1,0 +1,10 @@
+description: "CRM: clientes e contatos"
+type: postgres
+mode: attach
+writable: true
+connection:
+  host: db
+  port: 5433
+  database: crm
+  user: ${CRM_USER}
+  password: ${CRM_PASSWORD}

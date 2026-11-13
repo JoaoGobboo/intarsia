@@ -1,0 +1,22 @@
+sources/Bad-Name.yaml:1:1: error: invalid file name: the name of a source becomes its name in queries, so use lowercase letters, digits and underscores, starting with a letter
+sources/a_list.yaml:1:1: error: expected fields in the form `name: value`
+sources/bad_variable.yaml:4:9: error: connection.host: invalid variable reference ${crm-host}: use letters, digits and underscores
+sources/bad_variable.yaml:5:13: error: connection.database: variable reference is missing the closing brace
+sources/crm.yml: warning: ignored: a source is a file ending in .yaml
+sources/duplicate_tables.yaml:5:1: error: tables: table "metas" is listed more than once
+sources/duplicate_tables.yaml:5:1: error: tables: a table name cannot be empty
+sources/empty.yaml:1:1: error: the file is empty
+sources/invalid_type.yaml:1:7: error: type: must be one of: postgres, excel, csv, parquet, pdf
+sources/literal_password.yaml:7:13: error: connection.password: must be a variable reference such as ${LITERAL_PASSWORD_PASSWORD}: credentials are never written in project files
+sources/malformed.yaml:4:9: error: sequence end token ']' not found
+sources/missing_connection.yaml:1:1: error: connection: is required
+sources/missing_fields.yaml:1:1: error: type: is required
+sources/missing_fields.yaml:1:1: error: mode: is required
+sources/missing_host.yaml:3:1: error: connection.host: is required
+sources/missing_variable.yaml:6:9: error: connection.user: environment variable ERP_USER is not set
+sources/notes.txt: warning: ignored: a source is a file ending in .yaml
+sources/sync_mode.yaml:2:7: error: mode: must be one of: attach
+sources/unknown_connection_field.yaml:5:3: error: connection.sheet: unknown field
+sources/unknown_field.yaml:2:1: error: modo: unknown field
+sources/wrong_port.yaml:5:9: error: connection.port: expected a whole number
+sources/wrong_value.yaml:3:11: error: writable: expected true or false

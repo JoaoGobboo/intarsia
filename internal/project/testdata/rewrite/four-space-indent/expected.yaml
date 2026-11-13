@@ -1,0 +1,11 @@
+type: postgres
+mode: attach
+connection:
+    host: db2        # four spaces
+    port: 6432
+    database: crm
+    user: ${CRM_USER}
+    password: ${CRM_PASSWORD}
+tables:
+  - clientes
+  - pedidos

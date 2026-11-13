@@ -1,0 +1,20 @@
+# sources/crm.yaml
+type: postgres
+mode: "attach"            # attach ou sync
+
+# Where the CRM lives.
+connection:
+  host: novo-crm.interno   # internal DNS
+  # Non-default port.
+  port: 5432
+  database: crm
+  user: ${CRM_USER}
+  password: ${CRM_NEW_PASSWORD}   # never the value itself
+owner: time-de-dados      # a field this program does not know
+
+tables:                 # omitido = todas
+  - clientes
+  # legacy
+  - contatos
+
+# End of file.

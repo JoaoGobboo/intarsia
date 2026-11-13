@@ -1,0 +1,1 @@
+project.yaml:2:9: error: format: unsupported format version 2: this version of Intársia reads format 1

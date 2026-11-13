@@ -1,0 +1,4 @@
+type: csv
+modo: attach
+connection:
+  path: a.csv

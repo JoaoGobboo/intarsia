@@ -1,0 +1,1 @@
+project.yaml:1:1: error: file not found: this directory is not an Intársia project (create one with `intarsia init`)

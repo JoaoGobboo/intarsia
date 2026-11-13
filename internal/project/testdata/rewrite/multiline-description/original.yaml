@@ -1,0 +1,7 @@
+description: |
+  First line.
+  Second line.
+type: csv
+mode: attach
+connection:
+  path: a.csv

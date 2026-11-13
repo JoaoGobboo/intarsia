@@ -1,0 +1,8 @@
+type: postgres
+mode: attach
+writable: true
+connection:
+  host: ${DW_HOST}
+  database: dw
+  user: ${CRM_USER}
+  password: ${CRM_PASSWORD}

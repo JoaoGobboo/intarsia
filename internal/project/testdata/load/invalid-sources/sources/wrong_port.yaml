@@ -1,0 +1,8 @@
+type: postgres
+mode: attach
+connection:
+  host: db
+  port: abc
+  database: crm
+  user: ${CRM_USER}
+  password: ${CRM_PASSWORD}

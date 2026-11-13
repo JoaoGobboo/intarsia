@@ -1,0 +1,4 @@
+type: pdf
+mode: attach
+connection:
+  path: "files/relatório anual.pdf"

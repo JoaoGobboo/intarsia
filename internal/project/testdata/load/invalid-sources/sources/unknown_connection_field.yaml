@@ -1,0 +1,5 @@
+type: csv
+mode: attach
+connection:
+  path: a.csv
+  sheet: Plan1

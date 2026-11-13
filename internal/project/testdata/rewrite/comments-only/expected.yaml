@@ -1,0 +1,5 @@
+# A source to be filled in.
+type: csv
+mode: attach
+connection:
+  path: a.csv

@@ -1,0 +1,6 @@
+type: csv
+mode: attach
+connection:
+  path: b.csv
+tables:
+  - a

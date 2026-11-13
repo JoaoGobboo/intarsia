@@ -1,0 +1,4 @@
+type: csv
+mode: sync
+connection:
+  path: a.csv

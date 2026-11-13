@@ -1,0 +1,8 @@
+type: excel
+mode: attach
+connection:
+  path: a.xlsx
+tables:
+  - metas
+  - metas
+  - ""

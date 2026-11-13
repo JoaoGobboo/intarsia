@@ -1,0 +1,5 @@
+type: csv
+mode: attach
+writable: maybe
+connection:
+  path: a.csv

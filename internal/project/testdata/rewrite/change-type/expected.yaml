@@ -1,0 +1,11 @@
+# sources/crm.yaml
+type: csv
+mode: "attach"            # attach ou sync
+
+# Where the CRM lives.
+connection:
+  path: files/clientes.csv
+owner: time-de-dados      # a field this program does not know
+
+
+# End of file.

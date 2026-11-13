@@ -1,0 +1,5 @@
+description: Now a single line
+type: csv
+mode: attach
+connection:
+  path: b.csv
