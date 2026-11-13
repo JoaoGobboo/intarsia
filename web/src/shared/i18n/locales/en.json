@@ -1,0 +1,6 @@
+{
+  "home": {
+    "tagline": "Unify databases, spreadsheets and APIs.",
+    "version": "Version {{version}}"
+  }
+}

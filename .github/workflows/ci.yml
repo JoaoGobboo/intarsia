@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Nothing uses cgo yet, but the DuckDB client will. Fail here, early, if
+      # a platform has no working C compiler.
+      - name: Check the C compiler used by cgo
+        run: |
+          cat > "$RUNNER_TEMP/cgo_check.go" <<'EOF'
+          package main
+
+          // int answer(void) { return 42; }
+          import "C"
+
+          import "fmt"
+
+          func main() { fmt.Println("cgo works:", C.answer()) }
+          EOF
+          CGO_ENABLED=1 go run "$RUNNER_TEMP/cgo_check.go"
+
+      - run: make build
+      - run: make test
+      - run: make lint
+      - run: ./bin/intarsia version

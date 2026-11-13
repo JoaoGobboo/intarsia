@@ -1,0 +1,9 @@
+# Build output
+/bin/
+/cmd/intarsia/dist/
+
+# Dependencies
+node_modules/
+
+# Project cache and snapshots: never committed
+data/

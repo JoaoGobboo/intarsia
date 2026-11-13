@@ -1,0 +1,31 @@
+version: "2"
+
+linters:
+  default: standard
+  enable:
+    - depguard
+  settings:
+    depguard:
+      rules:
+        # Built-in connectors have no privilege over external plugins: they may
+        # import sdk/ and each other, never the rest of internal/.
+        connectors-only-import-sdk:
+          list-mode: lax
+          files:
+            - "**/internal/connectors/**"
+          deny:
+            - pkg: github.com/intarsia/intarsia/internal
+              desc: built-in connectors may only import github.com/intarsia/intarsia/sdk
+            - pkg: github.com/intarsia/intarsia/cmd
+              desc: built-in connectors may only import github.com/intarsia/intarsia/sdk
+          allow:
+            - github.com/intarsia/intarsia/internal/connectors
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/intarsia/intarsia

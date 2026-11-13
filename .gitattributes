@@ -1,0 +1,2 @@
+# Same bytes on every platform; reference files in testdata/ depend on it.
+* text=auto eol=lf
