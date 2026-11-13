@@ -8,7 +8,8 @@ spreadsheet or a database. Light by design: one machine, one binary.
 
 ## Build from source
 
-Requirements: Go (version in `go.mod`), Node.js 22 and GNU Make.
+Requirements: Go (version in `go.mod`), Node.js 24 (or any Node.js with npm 11
+or newer) and GNU Make.
 
 ```sh
 make build
